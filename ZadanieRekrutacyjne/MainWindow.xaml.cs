@@ -22,6 +22,7 @@ namespace ZadanieRekrutacyjne
         public MainWindow()
         {
             InitializeComponent();
+            this.gridView.ItemsSource = new ViewModel().Books;
         }
     }
 }
