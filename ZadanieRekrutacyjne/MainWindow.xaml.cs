@@ -19,10 +19,17 @@ namespace ZadanieRekrutacyjne
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ViewModel books;
         public MainWindow()
         {
             InitializeComponent();
-            this.gridView.ItemsSource = new ViewModel().Books;
+            books = new ViewModel();
+            this.gridView.ItemsSource = books.Books;
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            books.Add();
         }
     }
 }

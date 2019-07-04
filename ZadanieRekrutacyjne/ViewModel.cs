@@ -10,8 +10,12 @@ namespace ZadanieRekrutacyjne
 {
     class ViewModel : ViewModelBase
     {
-        private ObservableCollection<Book> books;
-        public ObservableCollection<Book> Books
+        public ObservableCollection<Book> Books;
+        public ViewModel()
+        {
+            Books = CreateBooks();
+        }
+        /*public ObservableCollection<Book> Books
         {
             get
             {
@@ -22,7 +26,10 @@ namespace ZadanieRekrutacyjne
 
                 return this.books;
             }
-        }
+            set
+            {
+            }
+        }*/
 
         private ObservableCollection<Book> CreateBooks()
         {
@@ -35,6 +42,12 @@ namespace ZadanieRekrutacyjne
             book = new Book("agfgfg", 2, "ca");
             books.Add(book);
             return books;
+        }
+
+        public void Add()
+        {
+            Book book = new Book("fdsfds", 54, "gfhg");
+            Books.Add(book);
         }
 
     }

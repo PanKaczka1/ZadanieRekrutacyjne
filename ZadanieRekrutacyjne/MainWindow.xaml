@@ -8,7 +8,19 @@
         <Grid.Resources>
             <local:ViewModel x:Key="ViewModel"/>
         </Grid.Resources>
-        <telerik:RadGridView x:Name="gridView" DataContext="{StaticResource ViewModel}" ItemsSource="{Binding Books}"/>
-
+        <telerik:RadGridView x:Name="gridView" DataContext="{StaticResource ViewModel}" ItemsSource="{Binding Books}" Margin="0,0,0.4,39.8">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewColumn Header="Delete" >
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton Content="Delete"  
+                        Command="telerik:RadGridViewCommands.Delete" 
+                        CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <telerik:RadButton x:Name="Create" Margin="0,281,371.4,-0.2" Content="Dodaj" Click="Create_Click" Tag="{Binding Books}"/>
     </Grid>
 </Window>
