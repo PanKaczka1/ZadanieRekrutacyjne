@@ -10,7 +10,7 @@
         </Grid.Resources>
         <telerik:RadGridView x:Name="gridView" DataContext="{StaticResource ViewModel}" ItemsSource="{Binding Books}" Margin="0,0,0.4,39.8">
             <telerik:RadGridView.Columns>
-                <telerik:GridViewColumn Header="Delete" >
+                <telerik:GridViewColumn Header="Usun" >
                     <telerik:GridViewColumn.CellTemplate>
                         <DataTemplate>
                             <telerik:RadButton Content="Delete"  

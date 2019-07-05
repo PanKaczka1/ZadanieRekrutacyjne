@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ZadanieRekrutacyjne
 {
-    class Book : INotifyPropertyChanged
+    public class Book : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

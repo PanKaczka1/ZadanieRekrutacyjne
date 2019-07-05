@@ -8,28 +8,13 @@ using Telerik.Windows.Controls;
 
 namespace ZadanieRekrutacyjne
 {
-    class ViewModel : ViewModelBase
+    public class ViewModel
     {
         public ObservableCollection<Book> Books;
         public ViewModel()
         {
             Books = CreateBooks();
         }
-        /*public ObservableCollection<Book> Books
-        {
-            get
-            {
-                if (this.books == null)
-                {
-                    this.books = this.CreateBooks();
-                }
-
-                return this.books;
-            }
-            set
-            {
-            }
-        }*/
 
         private ObservableCollection<Book> CreateBooks()
         {
@@ -44,9 +29,9 @@ namespace ZadanieRekrutacyjne
             return books;
         }
 
-        public void Add()
+        public void Add(string name, decimal price, string author)
         {
-            Book book = new Book("fdsfds", 54, "gfhg");
+            Book book = new Book(name, price, author);
             Books.Add(book);
         }
 

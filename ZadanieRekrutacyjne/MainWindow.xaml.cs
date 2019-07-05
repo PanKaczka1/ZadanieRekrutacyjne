@@ -29,7 +29,8 @@ namespace ZadanieRekrutacyjne
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            books.Add();
+            EditWindow window = new EditWindow(books);
+            window.ShowDialog();
         }
     }
 }
