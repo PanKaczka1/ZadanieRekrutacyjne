@@ -8,11 +8,11 @@
         <Grid.Resources>
             <local:ViewModel x:Key="ViewModel"/>
         </Grid.Resources>
-        <telerik:RadGridView x:Name="gridView" DataContext="{StaticResource ViewModel}" ItemsSource="{Binding Books}" AutoGenerateColumns="False"  Margin="0,0,0.4,39.8">
+        <telerik:RadGridView x:Name="gridView" DataContext="{StaticResource ViewModel}" ItemsSource="{Binding Books}" AutoGenerateColumns="False" CellValidating="GridView_CellValidating"  Margin="0,0,0.4,39.8">
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Tytul"/>
                 <telerik:GridViewDataColumn DataMemberBinding="{Binding Author}" Header="Autor"/>
-                <telerik:GridViewDataColumn DataMemberBinding="{Binding Price}" Header="Cena"/>
+                <telerik:GridViewDataColumn Name="Price" DataMemberBinding="{Binding Price}" Header="Cena"/>
                 <telerik:GridViewColumn Header="Usun" >
                     <telerik:GridViewColumn.CellTemplate>
                         <DataTemplate>

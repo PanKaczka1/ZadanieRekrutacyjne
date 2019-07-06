@@ -25,6 +25,25 @@ namespace ZadanieRekrutacyjne
             InitializeComponent();
             books = new ViewModel();
             this.gridView.ItemsSource = books.Books;
+            this.gridView.CellValidating += GridView_CellValidating;
+        }
+
+        private void GridView_CellValidating(object sender, Telerik.Windows.Controls.GridViewCellValidatingEventArgs e)
+        {
+            if(e.Cell.Column.UniqueName == "Price")
+            {
+                decimal d;
+
+                if (!(decimal.TryParse(e.NewValue.ToString(), out d)))
+                {
+                    e.IsValid = false;
+                    e.ErrorMessage = "Cena musi byc liczba";
+                }
+                else if (decimal.Parse(e.NewValue.ToString()) != decimal.Round(decimal.Parse(e.NewValue.ToString()), 2, MidpointRounding.ToEven))
+                {
+                    e.IsValid = false;
+                }
+            }
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
