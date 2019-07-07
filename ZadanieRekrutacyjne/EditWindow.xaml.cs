@@ -20,8 +20,8 @@ namespace ZadanieRekrutacyjne
     /// </summary>
     public partial class EditWindow : Window
     {
-        private ViewModel books;
-        public EditWindow(ViewModel V)
+        private BooksController books;
+        public EditWindow(BooksController V)
         {
             books = V;
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace ZadanieRekrutacyjne
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(!(String.IsNullOrEmpty(name.Text) || String.IsNullOrEmpty(price.Text) || String.IsNullOrEmpty(author.Text)))
+            if(!(string.IsNullOrEmpty(name.Text) || string.IsNullOrEmpty(price.Text) || string.IsNullOrEmpty(author.Text)))
             {
             decimal d = decimal.Parse(price.Text);
             books.Add(name.Text, d, author.Text);

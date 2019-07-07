@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -19,11 +21,11 @@ namespace ZadanieRekrutacyjne
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ViewModel books;
+        private BooksController books;
         public MainWindow()
         {
             InitializeComponent();
-            books = new ViewModel();
+            books = new BooksController();
             this.gridView.ItemsSource = books.Books;
             this.gridView.CellValidating += GridView_CellValidating;
         }
@@ -50,6 +52,14 @@ namespace ZadanieRekrutacyjne
         {
             EditWindow window = new EditWindow(books);
             window.ShowDialog();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var output = books.Save();
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, output.ToString());
         }
     }
 }
