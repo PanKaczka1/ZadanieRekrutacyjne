@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,14 +60,22 @@ namespace ZadanieRekrutacyjne
             this.price = price;
             this.author = author;
         }
+            
+        public string ToStringWithSeparator(string separator)
+        {
+            var props = this.GetType().GetProperties();
+            StringBuilder sb = new StringBuilder();
+            foreach(var i in props)
+            {
+                var value = i.GetValue(this, null);
+                sb.Append(value.ToString() + ", ");
+            }
+            return string.Join(separator, sb);
+        }
 
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs args)
         {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            this.PropertyChanged?.Invoke(this, args);
         }
 
         private void OnPropertyChanged(string propertyName)

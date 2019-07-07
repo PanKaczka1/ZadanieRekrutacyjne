@@ -36,14 +36,10 @@ namespace ZadanieRekrutacyjne
         }
         public StringBuilder Save()
         {
-            string[] content = new string[3];
             StringBuilder output = new StringBuilder();
             foreach(var i in Books)
             {
-                content[0] = i.Name;
-                content[1] = i.Author;
-                content[2] = i.Price.ToString();
-                output.AppendLine(string.Join(",", content));
+                output.AppendLine(i.ToStringWithSeparator(","));
             }
             return output;
         }

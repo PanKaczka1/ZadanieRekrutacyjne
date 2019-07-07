@@ -57,7 +57,8 @@ namespace ZadanieRekrutacyjne
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            var output = books.Save();
+            saveFileDialog.Filter = "CSV file (*.csv)|*.csv";
+            StringBuilder output = books.Save();
             if (saveFileDialog.ShowDialog() == true)
                 File.WriteAllText(saveFileDialog.FileName, output.ToString());
         }

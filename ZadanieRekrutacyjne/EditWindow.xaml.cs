@@ -31,16 +31,16 @@ namespace ZadanieRekrutacyjne
         {
             if(!(string.IsNullOrEmpty(name.Text) || string.IsNullOrEmpty(price.Text) || string.IsNullOrEmpty(author.Text)))
             {
-            decimal d = decimal.Parse(price.Text);
-            books.Add(name.Text, d, author.Text);
-            this.Close();
+                decimal d = decimal.Parse(price.Text);
+                books.Add(name.Text, d, author.Text);
+                this.Close();
             }
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            Regex regex = new Regex("^[0-9]*.?[0-9]?[0-9]?$");
+            e.Handled = !(regex.IsMatch(e.Text));
         }
     }
 }
