@@ -60,7 +60,9 @@ namespace ZadanieRekrutacyjne
             saveFileDialog.Filter = "CSV file (*.csv)|*.csv";
             StringBuilder output = books.Save();
             if (saveFileDialog.ShowDialog() == true)
+            {
                 File.WriteAllText(saveFileDialog.FileName, output.ToString());
+            }
         }
     }
 }

@@ -13,20 +13,7 @@ namespace ZadanieRekrutacyjne
         public ObservableCollection<Book> Books;
         public BooksController()
         {
-            Books = CreateBooks();
-        }
-
-        private ObservableCollection<Book> CreateBooks()
-        {
-            ObservableCollection<Book> books = new ObservableCollection<Book>();
-            Book book;
-            book = new Book("a", 2, "ca");
-            books.Add(book);
-            book = new Book("aaaaaaaaa", 2, "ca");
-            books.Add(book);
-            book = new Book("agfgfg", 2, "ca");
-            books.Add(book);
-            return books;
+            Books = new ObservableCollection<Book>();
         }
 
         public void Add(string name, decimal price, string author)

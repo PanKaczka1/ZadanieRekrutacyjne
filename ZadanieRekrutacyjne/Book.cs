@@ -70,7 +70,7 @@ namespace ZadanieRekrutacyjne
                 var value = i.GetValue(this, null);
                 sb.Append(value.ToString() + ", ");
             }
-            return string.Join(separator, sb);
+            return sb.ToString();
         }
 
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs args)
